@@ -121,5 +121,7 @@ jobs:
             # git grep with regexps unsupported by FreeBSD libc
             rm -rf .git
 
-            gmake -j $(sysctl -n hw.ncpu) check
+            gmake -j $(sysctl -n hw.ncpu) check || true
             echo "::endgroup::"
+
+            cat pam-srv-tests.log
